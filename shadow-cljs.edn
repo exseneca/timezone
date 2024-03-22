@@ -1,0 +1,19 @@
+{:deps {:aliases [:dev :frontend]}
+ :nrepl {:port 8777}
+ :dev-http {8080 "resources/public"}
+ :builds
+ {:app {:target :browser
+        :output-dir "resources/public/js"
+                                        ;:asset-paths
+        :modules {:app {:entries [timezone.home]
+                        :init-fn timezone.home/init}}
+        :devtools {:preloads [devtools.preload]}}
+  :build {:target :browser
+        :output-dir "resources/public/js"
+                                        ;:asset-paths
+        :modules {:app {:entries [timezone.home]
+                        :init-fn timezone.home/init}}}
+  :test {
+         :target :node-test
+         :output-to "out/node-tests.js"
+         :autorun true}}}
