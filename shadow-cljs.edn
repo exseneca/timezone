@@ -4,7 +4,6 @@
  :builds
  {:app {:target :browser
         :output-dir "resources/public/js"
-                                        ;:asset-paths
         :modules {:app {:entries [timezone.home]
                         :init-fn timezone.home/init}}
         :devtools {:preloads [devtools.preload]}}
@@ -12,7 +11,8 @@
         :output-dir "resources/public/js"
                                         ;:asset-paths
         :modules {:app {:entries [timezone.home]
-                        :init-fn timezone.home/init}}}
+                        :init-fn timezone.home/init}}
+        :compiler-options {:optimizations :none}} ; Simple and lazy option so that I don't have to think about externs
   :test {
          :target :node-test
          :output-to "out/node-tests.js"
